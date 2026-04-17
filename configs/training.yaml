@@ -1,0 +1,23 @@
+training:
+  catboost:
+    iterations_per_batch: 100
+    depth: 6
+    learning_rate: 0.1
+    loss_function: "RMSE"
+    eval_metric: "RMSE"
+    thread_count: 4
+    bootstrap_type: "Bernoulli"
+    subsample: 0.8
+    random_seed: 42
+    verbose: 0
+    train_dir: "artifacts/logs/catboost_info"
+  model_path: "artifacts/models/catboost_incremental.pkl"
+
+validation:
+  strategy: "holdout"
+  test_size: 0.20
+  model_store_dir: "artifacts/models"
+  promotion_metric: "rmse"
+  promotion_min_improvement: 0.01
+  promotion_direction: "minimize"
+  model_drift_threshold: 0.1

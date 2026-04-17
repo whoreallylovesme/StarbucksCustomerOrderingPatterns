@@ -1,0 +1,25 @@
+data:
+  source_file: "artifacts/data/starbucks_customer_ordering_patterns.csv"
+  kaggle:
+    enabled: false
+    dataset: "likithagedipudi/starbucks-customer-ordering-patterns"
+    filename: "starbucks_customer_ordering_patterns.csv"
+  target_column: "total_spend"
+  time_column: "order_date"
+  id_columns: ["customer_id", "order_id"]
+  batch_size: 10000
+  missing_injection:
+    enabled: true
+    rate: 0.05
+    columns:
+      - "fulfillment_time_min"
+      - "cart_size"
+      - "num_customizations"
+      - "order_channel"
+      - "drink_category"
+    seed: 42
+
+ingestion:
+  raw_store_dir: "artifacts/data/raw"
+  meta_dir: "artifacts/data/meta"
+  state_file: "artifacts/data/meta/state.json"

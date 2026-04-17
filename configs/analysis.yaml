@@ -1,0 +1,11 @@
+analysis:
+  quality_dir: "artifacts/data/quality"
+  missing_threshold: 0.30
+  duplicate_threshold: 0.10
+  outlier_z_threshold: 3.5
+  drift_ks_pvalue: 0.05
+
+preparation:
+  numeric_impute_strategy: "median"   # median | mean | mode | constant
+  numeric_impute_constant: 0.0        # используется если strategy = constant
+  categorical_fill_value: "Unknown"   # используется для всех категориальных

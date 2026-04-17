@@ -1,0 +1,9 @@
+serving:
+  production_dir: "artifacts/models/production"
+  log_dir: "artifacts/logs"
+  monitoring_file: "artifacts/logs/monitoring.json"
+  pipeline_log: "artifacts/logs/pipeline.log"
+  predictions_dir: "artifacts/data/predictions"
+
+reports:
+  output_dir: "artifacts/reports"

@@ -16,8 +16,17 @@ pip install -r requirements.txt
 
 Путь к датасету задается в `configs/data.yaml` (поле `data.source_file`).
 По умолчанию: `artifacts/data/starbucks_customer_ordering_patterns.csv`.
-Для автоматической загрузки с Kaggle установите `data.kaggle.enabled: true`
-в том же файле (требуется `~/.kaggle/kaggle.json`).
+
+Для автоматической загрузки с Kaggle:
+
+1. Установите `data.kaggle.enabled: true` в `configs/data.yaml`
+2. Передайте credentials через переменные окружения при запуске:
+
+```bash
+KAGGLE_USERNAME=<ваш_логин> KAGGLE_KEY=<ваш_токен> python run.py -mode "update"
+```
+
+Токен берется на странице https://www.kaggle.com/settings -> API -> Create New Token.
 
 ---
 

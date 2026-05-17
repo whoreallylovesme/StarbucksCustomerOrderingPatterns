@@ -6,3 +6,4 @@ statsmodels>=0.14
 pyyaml>=6.0
 catboost>=1.2
 kaggle>=1.6
+pytest>=8.0

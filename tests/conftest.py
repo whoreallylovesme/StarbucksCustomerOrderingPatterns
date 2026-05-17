@@ -31,6 +31,7 @@ def cfg():
 def isolated_cfg(tmp_path, cfg):
     c = copy.deepcopy(cfg)
     c["training"]["model_path"] = str(tmp_path / "catboost_incremental.pkl")
+    c["training"]["catboost"]["train_dir"] = str(tmp_path / "catboost_info")
     c["validation"]["model_store_dir"] = str(tmp_path / "models")
     c["serving"]["production_dir"] = str(tmp_path / "production")
     c["serving"]["log_dir"] = str(tmp_path / "logs")

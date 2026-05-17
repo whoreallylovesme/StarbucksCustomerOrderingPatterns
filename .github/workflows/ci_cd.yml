@@ -6,8 +6,8 @@ on:
   pull_request:
     branches: ["**"]
   schedule:
-    # Runs daily at 06:00 UTC — each run trains on the next batch
-    - cron: "0 6 * * *"
+    # Runs every hour — each run trains on the next batch
+    - cron: "0 * * * *"
   workflow_dispatch:
 
 env:

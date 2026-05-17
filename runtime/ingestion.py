@@ -102,7 +102,11 @@ class DataIngester:
         df = df.sort_values(self.time_col).reset_index(drop=True)
         df = self._inject_missing(df)
         total_batches = max(1, len(df) // self.batch_size)
-        for i, batch in enumerate(np.array_split(df, total_batches)):
+        batches = [
+            df.iloc[i * self.batch_size:(i + 1) * self.batch_size]
+            for i in range(total_batches)
+        ]
+        for i, batch in enumerate(batches):
             batch.to_csv(self.raw_dir / f"batch_{i:03d}.csv", index=False)
             save_json(
                 self.meta_dir / f"meta_batch_{i:03d}.json",
